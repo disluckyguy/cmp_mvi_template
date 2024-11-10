@@ -1,21 +1,12 @@
-This is a Kotlin Multiplatform project targeting Android, iOS, Web, Desktop.
+# Compose Multiplatform MVI Template
 
-* `/composeApp` is for code that will be shared across your Compose Multiplatform applications.
-  It contains several subfolders:
-  - `commonMain` is for code that’s common for all targets.
-  - Other folders are for Kotlin code that will be compiled for only the platform indicated in the folder name.
-    For example, if you want to use Apple’s CoreCrypto for the iOS part of your Kotlin app,
-    `iosMain` would be the right folder for such calls.
+This is a Compose Multiplatform template for my own projects, feel free to use it or take inspiration from it.
 
-* `/iosApp` contains iOS applications. Even if you’re sharing your UI with Compose Multiplatform, 
-  you need this entry point for your iOS app. This is also where you should add SwiftUI code for your project.
+## Structure
+The struction is based on the MVI architecture, every feature(in this template a counter screen as an example) is put in its own folder with:
 
+- a "data" folder that contains functions to access and obtain raw data(not needed in the template example so it's not put)
+- a "domain" folder, which contains files for state classes, event classes, and a ModelView that utilizes the state and modifies it using the events
+- a "view" folder that contains the UI widgets
 
-Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html),
-[Compose Multiplatform](https://github.com/JetBrains/compose-multiplatform/#compose-multiplatform),
-[Kotlin/Wasm](https://kotl.in/wasm/)…
-
-We would appreciate your feedback on Compose/Web and Kotlin/Wasm in the public Slack channel [#compose-web](https://slack-chats.kotlinlang.org/c/compose-web).
-If you face any issues, please report them on [GitHub](https://github.com/JetBrains/compose-multiplatform/issues).
-
-You can open the web application by running the `:composeApp:wasmJsBrowserDevelopmentRun` Gradle task.
+The structure is inspired by BloC architecture which is popular when developing with Flutter
